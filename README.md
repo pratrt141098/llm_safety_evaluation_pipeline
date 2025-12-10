@@ -1,31 +1,4 @@
-This README documents how to use the **HIJ (Human-In-the-loop Judgment) scoring file** and the **combined HIJ+LLM scores file** in the `EVALUATION_PIPELINE` repo. It assumes the project layout:
-
-prompts/
-prompts.tsv
-
-responses/
-raw_responses_gemini.csv
-raw_responses_llama.csv
-responses_merged.csv
-
-rubrics/
-hij_evaluation_rubric.md
-
-scores/
-hij_scores.csv
-llm_scores.csv
-combined_scores.csv # created by combine_scores.py
-
-scripts/
-run_eval_gemini.py
-run_eval_llama.py
-merge_responses.py
-aie_llm_scoring.py
-init_hij_scores.py
-combine_scores.py
-
-text
-
+This README documents how to use the **HIJ (Human-In-the-loop Judgment) scoring file** and the **combined HIJ+LLM scores file** in the `EVALUATION_PIPELINE` repo.
 The goal is to support a **three-signal evaluation framework**:
 
 1. **HIJ scores**: Human raters using `rubrics/hij_evaluation_rubric.md`.
