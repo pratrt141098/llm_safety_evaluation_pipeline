@@ -24,8 +24,6 @@ aie_llm_scoring.py
 init_hij_scores.py
 combine_scores.py
 
-text
-
 The goal is to support a **three-signal evaluation framework**:
 
 1. **HIJ scores**: Human raters using `rubrics/hij_evaluation_rubric.md`.
