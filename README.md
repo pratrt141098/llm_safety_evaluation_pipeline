@@ -1,31 +1,4 @@
-This README documents how to use the **HIJ (Human-In-the-loop Judgment) scoring file** and the **combined HIJ+LLM scores file** in the `EVALUATION_PIPELINE` repo. It assumes the project layout:
-
-prompts/
-prompts.tsv
-
-responses/
-raw_responses_gemini.csv
-raw_responses_llama.csv
-responses_merged.csv
-
-rubrics/
-hij_evaluation_rubric.md
-
-scores/
-hij_scores.csv
-llm_scores.csv
-combined_scores.csv # created by combine_scores.py
-
-scripts/
-run_eval_gemini.py
-run_eval_llama.py
-merge_responses.py
-aie_llm_scoring.py
-init_hij_scores.py
-combine_scores.py
-
-text
-
+This README documents how to use the LLM SAFETY EVALUATION PIPELINE.
 The goal is to support a **three-signal evaluation framework**:
 
 1. **HIJ scores**: Human raters using `rubrics/hij_evaluation_rubric.md`.
@@ -132,7 +105,7 @@ This will **create or overwrite** `scores/hij_scores.csv`.
 ### Annotation Workflow
 
 1. **Assign rater ids**:
-   - Before annotating, decide simple ids (e.g., `r1`, `r2`). Use consistent ids across the file.
+   - Before annotating, decide simple ids (e.g., `r1`, `r2` or '1', '2'). Use consistent ids across the file.
 2. **Split work if needed**:
    - You can copy `hij_scores.csv` to per-rater files and later merge on the shared keys (`indicator_id`, `convo_id`, `turn_index`, `model`, `seed`).
 3. **Scoring guidelines**:
@@ -224,8 +197,6 @@ From repo root:
 
 python scripts/combine_scores.py
 
-text
-
 This will create or overwrite `scores/combined_scores.csv`.
 
 ---
@@ -301,3 +272,7 @@ Slice by:
    - Use `combined_scores.csv` for plots, tables, and statistical analysis of human vs LLM scoring across indicators, difficulties, models, and seeds.
 
 This setup gives you a **clean, reproducible pipeline** for aligning human annotations with automated LLM evaluations over the shared L4 Autonomy & Agency prompt suite.
+
+## The final results of the analysis related to model comparison are in the analysis folder. 
+
+### All of the prompt response CSVs have been created solely from the first 30 prompts in our prompt set and not on the entirety of the roughly 2700 prompt long prompt-set. We hope with more time and better resources, we can use this set as an input to our pipeline.
